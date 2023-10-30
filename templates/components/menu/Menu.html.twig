@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path(appRoute) }}">{{ appName }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% for element in elements %}
+                    {% if element.children is defined %}
+                        <twig:MenuDropdown label="{{ element.label }}" children="{{ element.children }}" />
+                    {% else %}
+                        <twig:MenuElement label="{{ element.label }}" route="{{ element.route }}" />
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <div class="navbar">
+                {% if not connected %}
+                    <a class="nav-link mx-2" href="{{ path('public_login') }}">{{ 'title.login' | trans }}</a>
+                    <a class="nav-link mx-2" href="{{ path('public_registration_register') }}">{{ 'title.registration' | trans }}</a>
+                {% else %}
+                    <twig:menu:UserMenuElement />
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</nav>

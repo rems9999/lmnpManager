@@ -1,0 +1,10 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ label | trans }}
+    </a>
+    <ul class="dropdown-menu">
+        {% for child in children %}
+            <twig:MenuElement label="{{ child.label }}" route="{{ child.route }}" />
+        {% endfor %}
+    </ul>
+</li>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block subTitle %}{{ 'title.profile' | trans }}{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <twig:form:Form form="{{ form }}">
+                <twig:FormRow form="{{ form.name }}" label="user.name" />
+                <twig:FormRow form="{{ form.surname }}" label="user.surname" />
+            </twig:form:Form>
+        </div>
+    </div>
+{% endblock %}

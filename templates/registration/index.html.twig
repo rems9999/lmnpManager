@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block subTitle %}{{ 'title.registration' }}{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <twig:form:Form form="{{ form }}">
+                <twig:FormRow form="{{ form.email }}" label="user.email" />
+                <twig:FormRow form="{{ form.password }}" label="user.password" />
+                <twig:FormRow form="{{ form.repeatPassword }}" label="user.repeatPassword" />
+            </twig:form:Form>
+        </div>
+    </div>
+{% endblock %}

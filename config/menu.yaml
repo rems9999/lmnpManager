@@ -1,0 +1,19 @@
+home:
+  route: public_home
+  label: title.home
+#property:
+#  route: public_home
+#  label: title.property
+#
+#dropdown:
+#  label: dropdown
+#  children:
+#    item1:
+#      route: public_home
+#      label: item1
+#    item2:
+#      route: public_home
+#      label: item2
+#    item3:
+#      route: public_home
+#      label: item3

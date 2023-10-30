@@ -1,0 +1,27 @@
+title:
+  home: Accueil
+  property: Propriétés
+  login: Connexion
+  logout: Déconnexion
+  registration: Créer un compte
+  profile: Profil
+
+
+form:
+  action:
+    submit: Soumettre
+    login: Se connecter
+    close: Fermer
+
+
+#Entities
+user:
+  email: Mail
+  password: Mot De Passe
+  repeatPassword: Encore !!
+  name: Nom
+  surname: Prénom
+  flash:
+    profile:
+      success: 'Profil complet !!!'
+      missing: 'Merci de compléter votre profil'

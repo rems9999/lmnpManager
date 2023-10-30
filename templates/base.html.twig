@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}LMNP Manager - {% block subTitle %}{% endblock %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap-5.3.2/package/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-5.15.4/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ importmap() }}
+    {% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+{% block menu %}
+    <twig:Menu/>
+{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block alerts %}
+    <div class="row justify-content-center mt-2">
+        <div class="col-8">
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <twig:Alert type="{{ type }}" message="{{ message }}"/>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+    <twig:Footer/>
+{% endblock %}
+</body>
+</html>
