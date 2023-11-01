@@ -1,10 +1,10 @@
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ label | trans }}
+        {{ icon is same as '' ? icon : (('<span class="mx-2">' ~ icon ~ '</span>') | raw) }}{{ label | trans }}
     </a>
     <ul class="dropdown-menu">
         {% for child in children %}
-            <twig:MenuElement label="{{ child.label }}" route="{{ child.route }}" />
+            <twig:MenuDropdownItem label="{{ child.label }}" route="{{ child.route }}" icon="{{ child.icon }}" />
         {% endfor %}
     </ul>
 </li>

@@ -14,6 +14,7 @@ class ProfileType extends AbstractType
         $builder
             ->add('name')
             ->add('surname')
+            ->add('address', AddressType::class)
         ;
     }
 

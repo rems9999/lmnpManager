@@ -25,6 +25,9 @@ class UserManager
 
     public function save(User $user): void
     {
+        if($user->getAddress()->isEmpty()){
+            $user->setAddress(null);
+        }
         $this->manager->persist($user);
         $this->manager->flush();
     }
@@ -45,9 +48,5 @@ class UserManager
         $user->setPassword($hashedPassword);
     }
 
-    public function isComplete(User $user): bool
-    {
-        return $user->getName() && $user->getSurname();
-    }
 
 }

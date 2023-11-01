@@ -1,0 +1,8 @@
+
+<li class="breadcrumb-item {{ active is defined and active == true ? 'active' : '' }}">
+    {% if path is defined %}
+        <a href="{{ path }}" class="text-decoration-none">{{ icon is defined ? (('<span class="mx-2">' ~ icon ~ '</span>') | raw) : '' }}{{ label | trans }}</a>
+    {% else %}
+        <span>{{ icon is defined ? (('<span class="mx-2">' ~ icon ~ '</span>') | raw) : '' }}{{ label | trans }}</span>
+    {% endif %}
+</li>

@@ -7,3 +7,4 @@
 
 import './vendor/bootstrap.js'
 import './vendor/fontawesome.js'
+import './toggletheme.js'

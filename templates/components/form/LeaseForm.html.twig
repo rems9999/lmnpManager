@@ -1,0 +1,28 @@
+<twig:form:Form form="{{ form }}">
+    <twig:form:TenantForm form="{{ form.tenant }}" />
+    <twig:FormRowCol elements="{{ [
+        {
+            form: form.rent,
+            label: 'lease.rent'
+        },
+        {
+            form: form.charge,
+            label: 'lease.charge'
+        },
+        {
+            form: form.paymentDay,
+            label: 'lease.paymentDay'
+        }
+    ] }}" />
+    <twig:FormRowCol elements="{{ [
+        {
+            form: form.startedAt,
+            label: 'lease.startedAt'
+        },
+        {
+            form: form.endedAt,
+            label: 'lease.endedAt'
+        }
+    ] }}" />
+
+</twig:form:Form>

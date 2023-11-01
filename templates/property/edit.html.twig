@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block subTitle %}{{ 'title.property' | trans }}{% endblock %}
+
+{% block bc_content %}
+    <twig:breadcrumb:BreadcrumbElement
+            label="title.property"
+            icon="<i class='fas fa-building'></i>"
+            path="{{ path('user_property_index') }}"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="form.action.edit"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="{{ property.name }}"
+            active="1"
+    />
+{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <twig:form:PropertyForm form="{{ form }}" />
+        </div>
+    </div>
+{% endblock %}
+

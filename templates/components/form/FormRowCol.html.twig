@@ -1,0 +1,7 @@
+<div class="row justify-content-around">
+    {% for element in elements %}
+        <div class="col-{{ this.width }}">
+            <twig:FormRow form="{{ element.form }}" label="{{ element.label }}" />
+        </div>
+    {% endfor %}
+</div>

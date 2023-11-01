@@ -2,5 +2,17 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <twig:breadcrumb:BreadcrumbElement
+                    label="title.home"
+                    icon="<i class='fas fa-home'></i>"
+                    active="1"
+            />
+        </ol>
+    </nav>
+{% endblock %}
+
 {% block body %}
 {% endblock %}

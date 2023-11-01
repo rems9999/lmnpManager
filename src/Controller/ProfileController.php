@@ -21,7 +21,7 @@ class ProfileController extends AbstractController
         ;
         if($form->isSubmitted() && $form->isValid()){
             $manager->save($user);
-            if ($manager->isComplete($user)) {
+            if ($user->isComplete()) {
                 $this->addTransFlash('success', 'user.flash.profile.success');
             }
             return $this->redirectToRoute('public_home');

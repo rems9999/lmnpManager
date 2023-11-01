@@ -1,10 +1,13 @@
 home:
   route: public_home
   label: title.home
-#property:
-#  route: public_home
-#  label: title.property
-#
+  icon: '<i class="fas fa-home"></i>'
+
+property:
+  route: user_property_index
+  label: title.property
+  icon: '<i class="fas fa-building"></i>'
+
 #dropdown:
 #  label: dropdown
 #  children:

@@ -1,0 +1,15 @@
+:root {
+    --bs-breadcrumb-divider: '>';
+}
+
+.card.property, .card.lease {
+    width: 18rem;
+}
+
+.breadcrumb-item a {
+    color: inherit !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--bs-primary-text-emphasis) !important;
+}

@@ -8,5 +8,6 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 final class MenuElement
 {
     public string $route;
-    public string $label;
+    public string $label = '';
+    public string $icon = '';
 }

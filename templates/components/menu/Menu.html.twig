@@ -8,9 +8,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% for element in elements %}
                     {% if element.children is defined %}
-                        <twig:MenuDropdown label="{{ element.label }}" children="{{ element.children }}" />
+                        <twig:MenuDropdown label="{{ element.label }}" children="{{ element.children }}" icon="{{ element.icon }}" />
                     {% else %}
-                        <twig:MenuElement label="{{ element.label }}" route="{{ element.route }}" />
+                        <twig:MenuElement label="{{ element.label }}" route="{{ element.route }}" icon="{{ element.icon }}" />
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -21,6 +21,33 @@
                 {% else %}
                     <twig:menu:UserMenuElement />
                 {% endif %}
+                <div class="vr mx-3"></div>
+                <span class="nav-item dropdown">
+                    <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)">
+                        <span class="theme-icon-active"><i class="far fa-sun"></i></span>
+                        <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+                        <li>
+                            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                <span class="mx-2"><i class="far fa-sun"></i></span>
+                                Light
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
+                                <span class="mx-2"><i class="far fa-moon"></i></span>
+                                Dark
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                <span class="mx-2"><i class="fas fa-adjust"></i></span>
+                                Auto
+                            </button>
+                        </li>
+                    </ul>
+                </span>
             </div>
 
         </div>

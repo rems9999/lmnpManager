@@ -1,9 +1,9 @@
-<div class="nav-item dropstart">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<div class="nav-item dropdown">
+    <button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <span class="text-info"><i class="far fa-user"></i></span>
-    </a>
-    <ul class="dropdown-menu text-center">
-        <twig:MenuElement label="title.logout" route="user_logout" />
-        <twig:MenuElement label="title.profile" route="user_profile" />
+    </button>
+    <ul class="dropdown-menu  dropdown-menu-end">
+        <twig:MenuDropdownItem label="title.logout" route="user_logout" icon="<i class='fas fa-sign-out-alt'></i>" />
+        <twig:MenuDropdownItem label="title.profile" route="user_profile" icon="<i class='fas fa-address-card'></i>" />
     </ul>
 </div>
