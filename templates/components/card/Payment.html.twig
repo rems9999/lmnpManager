@@ -1,0 +1,16 @@
+<div class="card m-3 payment" >
+    <div class="card-body text-center">
+        <h5 class="card-title">{{ amount }}</h5>
+        <p class="card-text">
+            {{ paidAt }}
+        </p>
+        <br>
+        {% if publishable %}
+            <div class="row justify-content-center">
+                <div class="col-2 text-center">
+                    <a href="{{ path('user_lease_invoice', {id: id}) }}" class="nav-link"><i class="fas fa-file-invoice-dollar"></i></a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

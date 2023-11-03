@@ -4,9 +4,10 @@ namespace App\Entity;
 
 use App\Repository\TenantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Stringable;
 
 #[ORM\Entity(repositoryClass: TenantRepository::class)]
-class Tenant
+class Tenant implements Stringable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -46,5 +47,14 @@ class Tenant
         $this->surname = $surname;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf(
+            '%s %s',
+            $this->surname,
+            $this->name
+        );
     }
 }

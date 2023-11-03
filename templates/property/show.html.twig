@@ -20,7 +20,7 @@
 {% block body %}
     <h1 class="text-center">{{ property.name }}</h1>
     <div class="text-center">
-        <small>{{ property.address }}</small>
+        <small>{{ property.address | raw }}</small>
     </div>
     <hr>
     <h2 class="text-center">{{ 'title.leases' | trans }}</h2>

@@ -132,16 +132,36 @@ class Address implements \Stringable
                && null === $this->city;
     }
 
-    public function __toString()
+    public function toWay(): string
     {
         return sprintf(
-            "%d %s, %s %s\n%s %s",
+            '%d %s, %s %s',
             $this->number,
             $this->numberComplement?->value ?? '',
             $this->wayType?->value ?? '',
             $this->wayName,
-            $this->zip,
-            $this->city
         );
+    }
+
+    public function toCity(): string
+    {
+        return sprintf(
+            '%s %s',
+            $this->zip,
+            $this->city,
+        );
+    }
+    public function __toString()
+    {
+        return $this->toWay() . "<br>" . $this->complement . "<br>" . $this->toCity();
+//        return sprintf(
+//            "%d %s, %s %s\n%s %s",
+//            $this->number,
+//            $this->numberComplement?->value ?? '',
+//            $this->wayType?->value ?? '',
+//            $this->wayName,
+//            $this->zip,
+//            $this->city
+//        );
     }
 }

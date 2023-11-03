@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LeaseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LeaseRepository::class)]
@@ -35,6 +37,14 @@ class Lease
     #[ORM\ManyToOne(inversedBy: 'leases')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Property $property = null;
+
+    #[ORM\OneToMany(mappedBy: 'lease', targetEntity: Payment::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $payments;
+
+    public function __construct()
+    {
+        $this->payments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -123,5 +133,40 @@ class Lease
         $this->property = $property;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Payment>
+     */
+    public function getPayments(): Collection
+    {
+        return $this->payments;
+    }
+
+    public function addPayment(Payment $payment): static
+    {
+        if (!$this->payments->contains($payment)) {
+            $this->payments->add($payment);
+            $payment->setLease($this);
+        }
+
+        return $this;
+    }
+
+    public function removePayment(Payment $payment): static
+    {
+        if ($this->payments->removeElement($payment)) {
+            // set the owning side to null (unless already changed)
+            if ($payment->getLease() === $this) {
+                $payment->setLease(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTotalDue(): int
+    {
+        return $this->rent + $this->charge;
     }
 }

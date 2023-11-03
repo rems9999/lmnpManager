@@ -2,7 +2,7 @@
     --bs-breadcrumb-divider: '>';
 }
 
-.card.property, .card.lease {
+.card.property, .card.lease, .card.payment {
     width: 18rem;
 }
 

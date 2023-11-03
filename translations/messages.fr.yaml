@@ -7,6 +7,7 @@ title:
   profile: Profil
   leases: Baux
   lease: Bail
+  payment: Paiement
 
 
 form:
@@ -25,6 +26,20 @@ BOULEVARD: Boulevard
 AVENUE: Avenue
 PATH: Chemin
 PLACE: Place
+
+#Months
+January: Janvier
+February: Février
+March: Mars
+April: Avril
+May: Mai
+June: Juin
+July: Juillet
+August: Août
+September: Septembre
+October: Octobre
+November: Novembre
+December: Décembre
 
 #Entities
 user:
@@ -55,6 +70,7 @@ property:
     new:
       success: Propriété ajoutée avec succès
 lease:
+  tenant: 'Locataire'
   rent: Loyer
   charge: Charge
   paymentDay: Jour de paiement
@@ -65,7 +81,33 @@ lease:
       success: Le nouveau bail a été ajouté avec succès
     new:
       failure: Impossible d'ajouter un bail tant qu'il y en a un en cours
+    payment:
+      success: Le paiement a été enregistré
 
 tenant:
   name: Nom
   surname: Prénom
+
+payment:
+  amount: Montant
+  paidAt: Payé le
+
+
+# PDF
+invoice:
+  lessor: Bailleur
+  tenant: Locataire / Destinataire
+  receivedFrom: Reçu de
+  amount: La somme de
+  at: Le
+  forRent: Pour loyer et accessoires des locaux sis
+  inPayment: En paiement du terme de
+  detail: Détail
+  rent: Loyer nu
+  charge: Charges / Provisions de charges
+  totalAmount: Montant total du terme
+  madeIn: Fait à
+  legal: Le paiement de la présente n'emporte pas présomption de paiement des termes antérieurs. Cette quittance ou ce reçu
+    annule tous les reçus qui auraient pu être donnés pour acompte versé sur le présent terme. En cas de congé
+    précédemment donné, cette quittance ou ce reçu représenterait l'indemnité d'occupation et ne saurait être considéré
+    comme un titre d'occupation. Sous réserve d'encaissement.

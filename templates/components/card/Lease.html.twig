@@ -9,15 +9,20 @@
             <div class="col-6 fw-bold">{{ 'lease.endedAt' | trans }}:</div>
             <div class="col-6 ">{{ endedAt }}:</div>
         </div>
-        {% if endedAt is same as '' %}
-            <div class="row justify-content-between">
+            <div class="row {{ endedAt is same as '' ? 'justify-content-between' : 'justify-content-center' }}">
+                {% if endedAt is same as '' %}
                 <div class="col-2">
-                    <a href="{{ path('user_lease_end', {id: id}) }}" class="card-link"><i class="fas fa-times-circle"></i></a>
+                    <a href="{{ path('user_lease_end', {id: id}) }}" class="card-link text-bg-primary"><i class="fas fa-times-circle"></i></a>
                 </div>
+                {% endif %}
                 <div class="col-2">
-                    <a href="{{ path('user_lease_invoice', {id: id}) }}" class="card-link"><i class="fas fa-file-invoice-dollar"></i></a>
+                    <a href="{{ path('user_lease_show', {id: id}) }}" class="card-link{{ endedAt is same as '' ? ' text-bg-primary' : '' }}"><i class="far fa-eye"></i></a>
                 </div>
+                {% if endedAt is same as '' %}
+                <div class="col-2">
+                    <a href="{{ path('user_lease_payment', {id: id}) }}" target="_blank" class="card-link text-bg-primary"><i class="fas fa-money-bill-wave"></i></a>
+                </div>
+                {% endif %}
             </div>
-        {% endif %}
     </div>
 </div>

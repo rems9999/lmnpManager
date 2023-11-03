@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.property' | trans }}{% endblock %}
+
+{% block bc_content %}
+    <twig:breadcrumb:BreadcrumbElement
+            label="title.property"
+            icon="<i class='fas fa-building'></i>"
+            path="{{ path('user_property_index') }}"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="{{ lease.property.name }}"
+            path="{{ path('user_property_show', {id: lease.property.id}) }}"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="title.lease"
+            icon="<i class='fas fa-file-contract'></i>"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="{{ lease.startedAt | date('Y') }}"
+            path="{{ path('user_lease_show', {id: lease.id}) }}"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="title.payment"
+            icon="<i class='fas fa-file-invoice-dollar'></i>"
+    />
+    <twig:breadcrumb:BreadcrumbElement
+            label="{{ 'form.action.new' }}"
+            active="1"
+    />
+{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <twig:form:Form form="{{ form }}">
+                <twig:FormRowCol elements="{{ [
+                    {
+                        form: form.amount,
+                        label: 'payment.amount',
+                    },
+                    {
+                        form: form.paidAt,
+                        label: 'payment.paidAt',
+                    },
+                ] }}"
+                />
+            </twig:form:Form>
+        </div>
+    </div>
+{% endblock %}
+
+

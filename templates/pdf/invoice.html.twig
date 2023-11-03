@@ -1,0 +1,85 @@
+<page backtop="20px" backbottom="20px" backleft="10px" backright="10px">
+    <table style="width:100%;">
+        <thead>
+            <tr>
+                <th style="width:35%;" align="center" bgcolor="lightgray">
+                    {{ 'invoice.lessor' | trans }}
+                </th>
+                <th style="width:30%;"></th>
+                <th style="width:35%;" align="center" bgcolor="lightgray">
+                    {{ 'invoice.tenant' | trans }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="width:35%;">
+                    {{ user.name }}
+                </td>
+                <td style="width:30%"></td>
+                <td style="width:35%;">
+                    {{ tenant.name }} {{ tenant.surname }}
+                </td>
+            </tr>
+            <tr>
+                <td style="width:35%;">
+                    {{ user.address | raw }}
+                </td>
+                <td style="width:30%"></td>
+                <td style="width:35%;">
+                    {{ property.address | raw  }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <div style="width:100%;font-size:25px;font-weight:bold;" align="center" >Quittance de loyer</div>
+    <br>
+    <div style="width:100%;font-size:15px;;" align="center" >{{ month }} {{ year }}</div>
+    <br>
+    <br>
+    <br>
+    <div style="width:100%;">
+        <div style="width:80%;margin: auto;padding:10px;" align="left" border="1">
+            <div style="margin-bottom:5px;">{{ 'invoice.receivedFrom' | trans }}: <span style="font-weight:bold;">{{ tenant.surname }} {{ tenant.name }}</span></div>
+            <br>
+            <div style="margin-bottom:5px;">{{ 'invoice.amount' | trans }}: <span style="font-weight: bold;">{{ lease.rent + lease.charge }} €</span></div>
+            <br>
+            <div style="margin-bottom:5px;">{{ 'invoice.at' | trans }} <span style="font-weight:bold;">{{ day }} {{ month }} {{ year }}</span></div>
+            <br>
+            <div style="margin-bottom:5px;">{{ 'invoice.forRent' | trans }}</div>
+            <div style="margin-bottom:5px;font-weight:bold;">{{ property.address | raw }}</div>
+            <br>
+            <div style="margin-bottom:5px;">{{ 'invoice.inPayment' | trans }}: <span style="font-weight:bold;">{{ month }} {{ year }}</span></div>
+            <br>
+            <div style="margin-bottom:5px;">{{ 'invoice.detail' | trans }}:</div>
+            <table>
+                <tr>
+                    <td>{{ 'invoice.rent' | trans }}: </td>
+                    <th>{{ lease.rent }} €</th>
+                </tr>
+                <tr>
+                    <td>{{ 'invoice.charge' | trans }}: </td>
+                    <th>{{ lease.charge }} €</th>
+                </tr>
+            </table>
+            <br>
+            <div style="margin-bottom:5px;">{{ 'invoice.totalAmount' | trans }}: <span style="font-weight:bold;">{{ lease.rent + lease.charge }} €</span></div>
+            <br>
+            <br>
+            <br>
+            <div style="width:100%;font-size:15px;" align="center">
+                <span>{{ 'invoice.madeIn' | trans }} {{ property.address.city }} Le {{ date | date('d/m/Y') }}</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p style="font-size:10px;">
+                {{ 'invoice.legal' | trans }}
+            </p>
+        </div>
+    </div>
+</page>
